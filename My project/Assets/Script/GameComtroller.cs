@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     public int killsMax;
     public int isBoss;
     public int timerCap;
+    public int acceptY;
 
     public Text moneyText;
     public Text dPCText;
@@ -71,11 +72,15 @@ public class GameController : MonoBehaviour
     public double multValueMoney;
     public GameObject multBox;
 
-    //username
-    public TMP_InputField usernameInput;
-    public string username;
+    //welcome
     public Text usernameText;
+    public Text usernameText1;
+    public Text usernameText2;
     public GameObject usernameBox;
+    public GameObject accept;
+    public GameObject accept1;
+    public GameObject accept2;
+    public GameObject reset;
 
     //upgrades
     public Text pCostText;
@@ -126,16 +131,51 @@ public class GameController : MonoBehaviour
         offlineBox.gameObject.SetActive(false);
         multBox.gameObject.SetActive(false);
         Load();
-        if (username == "<Username>")
+        if (acceptY < 1)
+        {
+            usernameText.gameObject.SetActive(true);
+            usernameText1.gameObject.SetActive(false);
+            usernameText2.gameObject.SetActive(false);
+            accept1.gameObject.SetActive(false);
+            accept2.gameObject.SetActive(false);
             usernameBox.gameObject.SetActive(true);
+        }
         else
             usernameBox.gameObject.SetActive(false);
+
         IsBossChecker();
         health = healthCap;
         timerCap = 30;
         multValue = new System.Random().Next(20, 100);
         timerMultCap = new System.Random().Next(5, 10);
         timerMult = timerMultCap;
+    }
+    public void NextPage()
+    {
+        accept.SetActive(false);
+        accept1.SetActive(true);
+        accept2.SetActive(false);
+        usernameText.gameObject.SetActive(false);
+        usernameText1.gameObject.SetActive(true);
+        usernameText2.gameObject.SetActive(false);
+    }
+    public void NextPage1()
+    {
+        accept.SetActive(false);
+        accept1.SetActive(false);
+        accept2.SetActive(true);
+        usernameText.gameObject.SetActive(false);
+        usernameText1.gameObject.SetActive(false);
+        usernameText2.gameObject.SetActive(true);
+    }
+    public void Exit()
+    {
+        usernameBox.gameObject.SetActive(false);
+        acceptY += 1;
+    }
+    public void Reset()
+    {
+        acceptY = 0;
     }
 
     public void Update()
@@ -169,7 +209,6 @@ public class GameController : MonoBehaviour
             forward.gameObject.SetActive(false);
 
         IsBossChecker();
-        usernameText.text = username;
         Upgrades();
 
         saveTime += Time.deltaTime;
@@ -191,16 +230,6 @@ public class GameController : MonoBehaviour
         pPowerText.text = "+ 5 per second";
         dps = pPower;
         dpc = 1 + cPower;
-    }
-
-    public void UsernameChange()
-    {
-        username = usernameInput.text;
-    }
-
-    public void CloseUsernameBox()
-    {
-        usernameBox.SetActive(false);
     }
 
     public void IsBossChecker()
@@ -324,7 +353,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetString("money", money.ToString());
         PlayerPrefs.SetString("dpc", dpc.ToString());
         PlayerPrefs.SetString("dps", dps.ToString());
-        PlayerPrefs.SetString("username", username);
+        PlayerPrefs.SetInt("acceptY", acceptY);
         PlayerPrefs.SetInt("stage", stage);
         PlayerPrefs.SetInt("stageMax", stageMax);
         PlayerPrefs.SetInt("kills", kills);
@@ -350,13 +379,13 @@ public class GameController : MonoBehaviour
         pLevel = PlayerPrefs.GetInt("pLevel", 0);
         cLevel = PlayerPrefs.GetInt("cLevel", 0);
         OfflineProgressCheck = PlayerPrefs.GetInt("OfflineProgressCheck", 0);
-        username = PlayerPrefs.GetString("username", "<Username>");
+        acceptY = PlayerPrefs.GetInt("acceptY", 0);
         LoadOfflineProduction();
     }
 
     public void LoadOfflineProduction()
     {
-        if (OfflineProgressCheck == 1)
+        if (acceptY > 0)
         {
             offlineBox.gameObject.SetActive(true);
             long previousTime = Convert.ToInt64(PlayerPrefs.GetString("OfflineTime"));
