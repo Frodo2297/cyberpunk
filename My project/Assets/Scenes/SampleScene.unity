@@ -398,7 +398,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: level 0
+  m_Text: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 0"
 --- !u!1 &101918434
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &101918435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
@@ -630,7 +630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Forward
+  m_Text: "\u0432\u043F\u0435\u0440\u0435\u0434"
 --- !u!222 &154730226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1 Damage Per Second
+  m_Text: "1 \u0443\u0440\u043E\u043D \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
 --- !u!222 &249126253
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: close
+  m_Text: "\u0437\u0430\u043A\u0440\u044B\u0442\u044C"
 --- !u!222 &282743288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 3
@@ -923,7 +923,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 Per Click
+  m_Text: "0 \u0437\u0430 \u043A\u043B\u0438\u043A"
 --- !u!222 &323907289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1322,7 +1322,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 3
@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: $10'
+  m_Text: "\u0426\u0435\u043D\u0430: $10"
 --- !u!1 &387151912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1469,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 28
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -1478,9 +1478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Upgrades
-
-'
+  m_Text: "\u0410\u0420\u0421\u0415\u041D\u0410\u041B"
 --- !u!222 &394889840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1708,7 +1706,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 25
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
@@ -1717,9 +1715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ground soldier
-
-'
+  m_Text: "\u043D\u0430\u0437\u0435\u043C\u043D\u044B\u0439 \u0441\u043E\u043B\u0434\u0430\u0442"
 --- !u!222 &442764698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2129,7 +2125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000035763, y: 24.1}
+  m_AnchoredPosition: {x: -0.0000035763, y: 49}
   m_SizeDelta: {x: 175.87, y: 320.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658968292
@@ -2393,7 +2389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy
+  m_Text: "\u043A\u0443\u043F\u0438\u0442\u044C"
 --- !u!222 &668854788
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2762,7 +2758,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: stage - 1
+  m_Text: "\u044D\u0442\u0430\u043F - 1"
 --- !u!222 &847076240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3053,7 +3049,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1 Damage Per Click
+  m_Text: "1 \u0443\u0440\u043E\u043D \u0437\u0430 \u043A\u043B\u0438\u043A"
 --- !u!222 &970289386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3351,7 +3347,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
@@ -3360,7 +3356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy
+  m_Text: "\u043A\u0443\u043F\u0438\u0442\u044C"
 --- !u!222 &1019807591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3873,7 +3869,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 13
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 3
@@ -3882,7 +3878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 Per Second
+  m_Text: "0 \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
 --- !u!1 &1476634767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +4030,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 3
@@ -4043,7 +4039,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: $10'
+  m_Text: "\u0426\u0435\u043D\u0430: $10"
 --- !u!1 &1494366819
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,18 +4080,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 220
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0/10 kills
+  m_Text: "0/10 \u043F\u043E\u0431\u0435\u0434"
 --- !u!222 &1494366821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4683,12 +4679,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You were gone for: 00:00:00
-
-
-    You earned: $100.00
-
-'
+  m_Text: "\u0412\u0430\u0441 \u043D\u0435 \u0431\u044B\u043B\u043E: 00:00:00\n\n\u0412\u044B
+    \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043B\u0438: $100.00\n"
 --- !u!222 &1655964337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4905,7 +4897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -20}
+  m_AnchoredPosition: {x: 0, y: 263}
   m_SizeDelta: {x: 98.77, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1726146967
@@ -5339,16 +5331,16 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 117
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: "\u043D\u0430\u0437\u0430\u0434"
 --- !u!222 &1857403620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5530,7 +5522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135, y: -20}
+  m_AnchoredPosition: {x: 0, y: -145}
   m_SizeDelta: {x: 98.77, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1910283666
@@ -5839,7 +5831,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 1
@@ -5848,9 +5840,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Air soldier
-
-'
+  m_Text: "\u0412\u043E\u0437\u0434\u0443\u0448\u043D\u044B\u0439 \u0441\u043E\u043B\u0434\u0430\u0442"
 --- !u!222 &1998913161
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6070,7 +6060,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: level 0
+  m_Text: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 0"
 --- !u!1 &2018980327
 GameObject:
   m_ObjectHideFlags: 0

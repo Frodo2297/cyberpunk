@@ -192,11 +192,11 @@ public class GameController : MonoBehaviour
             timerMult -= Time.deltaTime;
 
         moneyText.text = "$" + WordNotation(money, "F2");
-        stageText.text = "stage - " + stage;
+        stageText.text = "этап - " + stage;
         killsText.text = kills + "/" + killsMax;
         healthText.text = WordNotation(health, "F2") + "/" + WordNotation(healthCap, "F2") + "HP";
-        dPCText.text = WordNotation(dpc, "F2") + " Per Click";
-        dPSText.text = WordNotation(dps, "F2") + " Per Second";
+        dPCText.text = WordNotation(dpc, "F2") + " за клик";
+        dPSText.text = WordNotation(dps, "F2") + " за секунду";
 
         healthBar.fillAmount = (float)(health / healthCap);
 
@@ -221,13 +221,13 @@ public class GameController : MonoBehaviour
 
     public void Upgrades()
     {
-        cCostText.text = "Cost: $" + WordNotation(cCost, "F2");
-        cLevelText.text = "Level: " + cLevel;
-        cPowerText.text = "+ 2 per hit";
+        cCostText.text = "цена: $" + WordNotation(cCost, "F2");
+        cLevelText.text = "уровень: " + cLevel;
+        cPowerText.text = "+ 2 за клик";
 
-        pCostText.text = "Cost: $" + WordNotation(pCost, "F2");
-        pLevelText.text = "Level: " + pLevel;
-        pPowerText.text = "+ 5 per second";
+        pCostText.text = "цена: $" + WordNotation(pCost, "F2");
+        pLevelText.text = "уровень: " + pLevel;
+        pPowerText.text = "+ 5 в секунду";
         dps = pPower;
         dpc = 1 + cPower;
     }
@@ -237,7 +237,7 @@ public class GameController : MonoBehaviour
         if (stage % 5 == 0)
         {
             isBoss = 10;
-            stageText.text = "(BOSS!) Stage - " + stage;
+            stageText.text = "(БОСС!) этап - " + stage;
             timer -= Time.deltaTime;
             if (timer <= 0) Back();
 
@@ -253,7 +253,7 @@ public class GameController : MonoBehaviour
         else
         {
             isBoss = 1;
-            stageText.text = "Stage - " + stage;
+            stageText.text = "этап - " + stage;
             timerText.text = "";
             timerBar.gameObject.SetActive(false);
             timerBG.gameObject.SetActive(false);
@@ -398,7 +398,7 @@ public class GameController : MonoBehaviour
             money += moneyToEarn;
             TimeSpan timer = TimeSpan.FromSeconds(idleTime);
 
-            offlineTimeText.text = "You were gone for: " + timer.ToString(@"hh\:mm\:ss") + "\n\nYou earned: $" + moneyToEarn.ToString("F2");
+            offlineTimeText.text = "Вас не было: " + timer.ToString(@"hh\:mm\:ss") + "\n\nВы заработали: $" + moneyToEarn.ToString("F2");
 
         }
     }
