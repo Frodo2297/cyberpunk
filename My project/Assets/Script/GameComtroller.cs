@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public int isBoss;
     public int timerCap;
     public int acceptY;
+    public int random;
 
     public Text moneyText;
     public Text dPCText;
@@ -50,6 +51,10 @@ public class GameController : MonoBehaviour
     public Image healthBar;
     public Image timerBar;
     public Image timerBG;
+    public Image enenmy0;
+    public Image enenmy1;
+    public Image enenmy2;
+    public Image enenmy3;
 
     public Animator gearExplode;
     public GameObject gearExplodeGameObject;
@@ -292,6 +297,25 @@ public class GameController : MonoBehaviour
         health = healthCap;
         if (isBoss > 1) timer = timerCap;
         killsMax = 10;
+    }
+
+    public void randomEnemy(int random) 
+    {
+        switch (random) 
+        {
+            case 0:
+                enemy0.gameObject.SetActive(true); 
+                break;
+            case 1:
+                enemy1.gameObject.SetActive(true);
+                break;
+            case 2:
+                enemy2.gameObject.SetActive(true);
+                break;
+            case 3:
+                enemy3.gameObject.SetActive(true);
+                break;
+        }
     }
 
     public void Back()
