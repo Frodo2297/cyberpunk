@@ -53,10 +53,6 @@ public class GameController : MonoBehaviour
     public Image healthBar;
     public Image timerBar;
     public Image timerBG;
-    public Image enenmy0;
-    public Image enenmy1;
-    public Image enenmy2;
-    public Image enenmy3;
 
     public Animator gearExplode;
     public GameObject gearExplodeGameObject;
@@ -95,12 +91,14 @@ public class GameController : MonoBehaviour
     public Text pPowerText;
 
     //sprites
-    public Text enemyNext;
     public Image enemyImg;
     public Sprite enemy1;
     public Sprite enemy2;
     public Sprite enemy3;
     public Sprite enemy4;
+
+    public GameObject effect;
+
 
     public double pCost
     {
@@ -192,6 +190,8 @@ public class GameController : MonoBehaviour
     public void Reset()
     {
         acceptY = 0;
+        money = 0;
+        enemyTurn = 0;
     }
 
     public void Update()
@@ -199,9 +199,6 @@ public class GameController : MonoBehaviour
         if (health <= 0) kill();
         else
         { health -= dps * Time.deltaTime; }
-
-        enemyNext.text = enemyTurn.ToString();
-         
         switch (enemyTurn)
         {
             case 0:
@@ -301,6 +298,7 @@ public class GameController : MonoBehaviour
     public void Hit()
     {
         health -= dpc;
+        Instantiate(effect, enemy.GetComponent<RectTransform>().position.normalized, Quaternion.identity);
         if (health <= 0)
         {
             kill();
@@ -326,6 +324,7 @@ public class GameController : MonoBehaviour
         {
             enemyTurn = 0;
         }
+
         IsBossChecker();
         health = healthCap;
         if (isBoss > 1) timer = timerCap;
