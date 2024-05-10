@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using Unity.Mathematics;
+using System.Security.Cryptography.X509Certificates;
 
 public class GameController : MonoBehaviour
 {
@@ -35,7 +37,7 @@ public class GameController : MonoBehaviour
     public int isBoss;
     public int timerCap;
     public int acceptY;
-    public int random;
+    public int enemyTurn;
 
     public Text moneyText;
     public Text dPCText;
@@ -91,6 +93,15 @@ public class GameController : MonoBehaviour
     public Text pCostText;
     public Text pLevelText;
     public Text pPowerText;
+
+    //sprites
+    public Text enemyNext;
+    public Image enemyImg;
+    public Sprite enemy1;
+    public Sprite enemy2;
+    public Sprite enemy3;
+    public Sprite enemy4;
+
     public double pCost
     {
         get
@@ -189,6 +200,23 @@ public class GameController : MonoBehaviour
         else
         { health -= dps * Time.deltaTime; }
 
+        enemyNext.text = enemyTurn.ToString();
+         
+        switch (enemyTurn)
+        {
+            case 0:
+                enemyImg.sprite = enemy1;
+                break;
+            case 1:
+                enemyImg.sprite = enemy2;
+                break;
+            case 2:
+                enemyImg.sprite = enemy3;
+                break;
+            case 3:
+                enemyImg.sprite = enemy4;
+                break;
+        }
         //mult
         multValueMoney = multValue * moneyPerSec;
         multText.text = "$" + multValueMoney.ToString("F2");
@@ -282,6 +310,7 @@ public class GameController : MonoBehaviour
     public void kill()
     {
         money += Math.Ceiling(healthCap / 14);
+        enemyTurn += 1;
         gearExplode.Play("GearsExplode", 0, 0);
         if (stage == stageMax)
         {
@@ -293,29 +322,14 @@ public class GameController : MonoBehaviour
                 stageMax += 1;
             }
         }
+        if (enemyTurn >= 4) 
+        {
+            enemyTurn = 0;
+        }
         IsBossChecker();
         health = healthCap;
         if (isBoss > 1) timer = timerCap;
         killsMax = 10;
-    }
-
-    public void randomEnemy(int random) 
-    {
-        switch (random) 
-        {
-            case 0:
-                enemy0.gameObject.SetActive(true); 
-                break;
-            case 1:
-                enemy1.gameObject.SetActive(true);
-                break;
-            case 2:
-                enemy2.gameObject.SetActive(true);
-                break;
-            case 3:
-                enemy3.gameObject.SetActive(true);
-                break;
-        }
     }
 
     public void Back()
