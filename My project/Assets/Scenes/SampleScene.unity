@@ -6182,6 +6182,7 @@ MonoBehaviour:
   isBoss: 0
   timerCap: 0
   acceptY: 0
+  enemyTurn: 0
   moneyText: {fileID: 1844580807}
   dPCText: {fileID: 970289385}
   dPSText: {fileID: 249126252}
@@ -6219,6 +6220,12 @@ MonoBehaviour:
   pCostText: {fileID: 386205270}
   pLevelText: {fileID: 2011032245}
   pPowerText: {fileID: 1325705147}
+  enemyImg: {fileID: 658968293}
+  enemy1: {fileID: 21300000, guid: 6be0aa41e80d0234dbcfedbe34f68a44, type: 3}
+  enemy2: {fileID: 21300000, guid: 1730e78f201d6bf4da2f05b7626657ca, type: 3}
+  enemy3: {fileID: 21300000, guid: 523ef76dc3b3965419f420d290de6bdb, type: 3}
+  enemy4: {fileID: 21300000, guid: bd79272b76752c14fb48aa4bc58c3dd2, type: 3}
+  effect: {fileID: 4781269516177809152, guid: 3b9626fabd3707249964fa087b65c46c, type: 3}
   pLevel: 0
   cCostText: {fileID: 1478672989}
   cLevelText: {fileID: 93277566}
