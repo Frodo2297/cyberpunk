@@ -60,26 +60,27 @@ public class GameController : MonoBehaviour
     //offline mode
     public DateTime currentDate;
     public DateTime oldTime;
-    public int OfflineProgressCheck;
     public float idleTime;
     public Text offlineTimeText;
     public float saveTime;
     public GameObject offlineBox;
     public int offlineLoadCount;
+    public int OfflineProgressCheck;
+
 
     //multiplier
     public Text multText;
-    public double multValue;
     public float timerMult;
     public float timerMultCap;
     public double multValueMoney;
+    public double multValue;
     public GameObject multBox;
 
     //welcome
-    public Text usernameText;
-    public Text usernameText1;
-    public Text usernameText2;
-    public GameObject usernameBox;
+    public Text welcomeText;
+    public Text welcomeText1;
+    public Text welcomeText2;
+    public GameObject welcomeBox;
     public GameObject accept;
     public GameObject accept1;
     public GameObject accept2;
@@ -147,15 +148,16 @@ public class GameController : MonoBehaviour
         Load();
         if (acceptY < 1)
         {
-            usernameText.gameObject.SetActive(true);
-            usernameText1.gameObject.SetActive(false);
-            usernameText2.gameObject.SetActive(false);
+            welcomeText.gameObject.SetActive(true);
+            welcomeText1.gameObject.SetActive(false);
+            welcomeText2.gameObject.SetActive(false);
+            accept.gameObject.SetActive(true);
             accept1.gameObject.SetActive(false);
             accept2.gameObject.SetActive(false);
-            usernameBox.gameObject.SetActive(true);
+            welcomeBox.gameObject.SetActive(true);
         }
         else
-            usernameBox.gameObject.SetActive(false);
+            welcomeBox.gameObject.SetActive(false);
 
         IsBossChecker();
         health = healthCap;
@@ -169,22 +171,22 @@ public class GameController : MonoBehaviour
         accept.SetActive(false);
         accept1.SetActive(true);
         accept2.SetActive(false);
-        usernameText.gameObject.SetActive(false);
-        usernameText1.gameObject.SetActive(true);
-        usernameText2.gameObject.SetActive(false);
+        welcomeText.gameObject.SetActive(false);
+        welcomeText1.gameObject.SetActive(true);
+        welcomeText2.gameObject.SetActive(false);
     }
     public void NextPage1()
     {
         accept.SetActive(false);
         accept1.SetActive(false);
         accept2.SetActive(true);
-        usernameText.gameObject.SetActive(false);
-        usernameText1.gameObject.SetActive(false);
-        usernameText2.gameObject.SetActive(true);
+        welcomeText.gameObject.SetActive(false);
+        welcomeText1.gameObject.SetActive(false);
+        welcomeText2.gameObject.SetActive(true);
     }
     public void Exit()
     {
-        usernameBox.gameObject.SetActive(false);
+        welcomeBox.gameObject.SetActive(false);
         acceptY += 1;
     }
     public void Reset()
@@ -192,6 +194,14 @@ public class GameController : MonoBehaviour
         acceptY = 0;
         money = 0;
         enemyTurn = 0;
+        cLevel = 0;
+        pLevel = 0;
+        stage = 1;
+        stageMax = 1;
+        kills = 0;
+        dpc = 1;
+        dps = 0;
+        health = healthCap;
     }
 
     public void Update()
@@ -199,6 +209,7 @@ public class GameController : MonoBehaviour
         if (health <= 0) kill();
         else
         { health -= dps * Time.deltaTime; }
+        //switch for boss
         switch (enemyTurn)
         {
             case 0:
