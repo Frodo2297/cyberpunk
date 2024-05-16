@@ -100,6 +100,7 @@ public class GameController : MonoBehaviour
 
     public GameObject effect;
 
+    public AudioSource soundPlay;
 
     public double pCost
     {
@@ -310,6 +311,7 @@ public class GameController : MonoBehaviour
     {
         health -= dpc;
         Instantiate(effect, enemy.GetComponent<RectTransform>().position.normalized, Quaternion.identity);
+        soundPlay.Play();
         if (health <= 0)
         {
             kill();
