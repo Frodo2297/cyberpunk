@@ -80,10 +80,12 @@ public class GameController : MonoBehaviour
     public Text welcomeText;
     public Text welcomeText1;
     public Text welcomeText2;
+    public Text welcomeText3;
     public GameObject welcomeBox;
     public GameObject accept;
     public GameObject accept1;
     public GameObject accept2;
+    public GameObject accept3;
     public GameObject reset;
 
     //upgrades
@@ -152,9 +154,11 @@ public class GameController : MonoBehaviour
             welcomeText.gameObject.SetActive(true);
             welcomeText1.gameObject.SetActive(false);
             welcomeText2.gameObject.SetActive(false);
+            welcomeText3.gameObject.SetActive(false);
             accept.gameObject.SetActive(true);
             accept1.gameObject.SetActive(false);
             accept2.gameObject.SetActive(false);
+            accept3.gameObject.SetActive(false);
             welcomeBox.gameObject.SetActive(true);
         }
         else
@@ -172,18 +176,33 @@ public class GameController : MonoBehaviour
         accept.SetActive(false);
         accept1.SetActive(true);
         accept2.SetActive(false);
+        accept3.SetActive(false);
         welcomeText.gameObject.SetActive(false);
         welcomeText1.gameObject.SetActive(true);
         welcomeText2.gameObject.SetActive(false);
+        welcomeText3.gameObject.SetActive(false);
     }
     public void NextPage1()
     {
         accept.SetActive(false);
         accept1.SetActive(false);
         accept2.SetActive(true);
+        accept3.SetActive(false);
         welcomeText.gameObject.SetActive(false);
         welcomeText1.gameObject.SetActive(false);
         welcomeText2.gameObject.SetActive(true);
+        welcomeText3.gameObject.SetActive(false);
+    }
+    public void NextPage2()
+    {
+        accept.SetActive(false);
+        accept1.SetActive(false);
+        accept2.SetActive(false);
+        accept3.SetActive(true);
+        welcomeText.gameObject.SetActive(false);
+        welcomeText1.gameObject.SetActive(false);
+        welcomeText2.gameObject.SetActive(false);
+        welcomeText3.gameObject.SetActive(true);
     }
     public void Exit()
     {

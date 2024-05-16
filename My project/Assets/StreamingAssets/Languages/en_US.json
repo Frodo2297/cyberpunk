@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "key": "SwapLang",
+      "value": "Swap language"
+    },
+    {
+      "key": "StageTop",
+      "value": "Stage - "
+    },
+    {
+      "key": "KillsTop",
+      "value": " wins"
+    },
+    {
+      "key": "DPC",
+      "value": " damage per click"
+    },
+    {
+      "key": "DPS",
+      "value": " damage per second"
+    },
+    {
+      "key": "Back1",
+      "value": "Back"
+    },
+    {
+      "key": "Forward1",
+      "value": "Forward"
+    },
+    {
+      "key": "OfflineText",
+      "value": "You weren't there: "
+    },
+    {
+      "key": "CloseOffline",
+      "value": "Close"
+    },
+    {
+      "key": "Next1",
+      "value": "Next"
+    },
+    {
+      "key": "Next2",
+      "value": "Next"
+    },
+    {
+      "key": "Next3",
+      "value": "Next"
+    },
+    {
+      "key": "Next4",
+      "value": "Next"
+    },
+    {
+      "key": "Welcome1",
+      "value": "In the game you need to defeat opponents to save them from crime."
+    },
+    {
+      "key": "Welcome2",
+      "value": "You will be able to create your own squad and improve it in order to ease your way to victory."
+    },
+    {
+      "key": "Welcome3",
+      "value": "If it is difficult for you in subsequent battles, you can return to the previous stage."
+    },
+    {
+      "key": "Upgrades",
+      "value": "Upgrades"
+    },
+    {
+      "key": "Buy1",
+      "value": "Buy"
+    },
+    {
+      "key": "Buy2",
+      "value": "Buy"
+    },
+    {
+      "key": "Level1",
+      "value": "Level "
+    },
+    {
+      "key": "Level2",
+      "value": "Level "
+    },
+    {
+      "key": "Price1",
+      "value": "Price: "
+    },
+    {
+      "key": "Price2",
+      "value": "Price: "
+    },
+    {
+      "key": "Click1",
+      "value": " per click"
+    },
+    {
+      "key": "Second1",
+      "value": " per second"
+    },
+    {
+      "key": "Soldier1",
+      "value": "Ground Soldier"
+    },
+    {
+      "key": "Soldier2",
+      "value": "Air Soldier"
+    }
+  ]
+}
