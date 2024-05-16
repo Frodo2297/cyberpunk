@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
         }
     }
     public double dpc;
+    public double dpcWin;
     public double dps;
     public double health;
     public double healthCap
@@ -38,6 +39,11 @@ public class GameController : MonoBehaviour
     public int timerCap;
     public int acceptY;
     public int enemyTurn;
+    public int isBossKilled1;
+    public int isBossKilled2;
+    public int medal;
+    public int newLevel;
+    public int newGameCount;
 
     public Text moneyText;
     public Text dPCText;
@@ -56,6 +62,9 @@ public class GameController : MonoBehaviour
 
     public Animator gearExplode;
     public GameObject gearExplodeGameObject;
+
+    public Animator enemyTap;
+    public GameObject enemyTapGameObject;
 
     //offline mode
     public DateTime currentDate;
@@ -97,10 +106,18 @@ public class GameController : MonoBehaviour
     public Sprite enemy2;
     public Sprite enemy3;
     public Sprite enemy4;
+    public Sprite boss;
 
     public GameObject effect;
-
     public AudioSource soundPlay;
+
+    public GameObject winScreen;
+    public GameObject closeWinScreen;
+    public GameObject nextWinScreen;
+    public GameObject w1;
+    public Text winScreenText1;
+    public Text winScreenText2;
+
 
     public double pCost
     {
@@ -115,7 +132,7 @@ public class GameController : MonoBehaviour
         get
         {
             return 5 * pLevel;
-        } 
+        }
     }
     public Text cCostText;
     public Text cLevelText;
@@ -124,7 +141,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 10 * Math.Pow(1.07, cLevel);
+            return 1 /*10 * Math.Pow(1.07, cLevel)*/;
         }
     }
     public int cLevel;
@@ -132,15 +149,16 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 2 * cLevel;
+            return 100000 * cLevel;
         }
     }
 
     //Background
     public Image bgBoss;
-    public Image boss;
     public Image enemy;
-    
+
+  //  public Text newLevelCost;
+   // public Text newLevelPower;
 
     public void Start()
     {
@@ -160,6 +178,7 @@ public class GameController : MonoBehaviour
         else
             welcomeBox.gameObject.SetActive(false);
 
+        w1.SetActive(false);
         IsBossChecker();
         health = healthCap;
         timerCap = 30;
@@ -203,6 +222,25 @@ public class GameController : MonoBehaviour
         dpc = 1;
         dps = 0;
         health = healthCap;
+    }
+    public void NewGame() 
+    {
+       // dpcWin = 1;
+        newGameCount++;
+        dpc = 1;
+       // dpcWin += newGameCount;
+        dpc += dpcWin;
+        money = 0;
+        enemyTurn = 0;
+        cLevel = 0;
+        pLevel = 0;
+        stage = 1;
+        stageMax = 1;
+        kills = 0;
+        dps = 0;
+        medal = 0;
+        health = healthCap;
+        w1.gameObject.SetActive(false);
     }
 
     public void Update()
@@ -259,6 +297,10 @@ public class GameController : MonoBehaviour
             saveTime = 0;
             save();
         }
+        if (medal == 4) 
+        {
+            w1.gameObject.SetActive(true);
+        }
     }
 
     public void Upgrades()
@@ -275,9 +317,10 @@ public class GameController : MonoBehaviour
     }
 
     public void IsBossChecker()
-    { 
-        if (stage % 5 == 0)
+    {
+        if (stage % 5 == 0 && stageMax < 11)
         {
+
             isBoss = 10;
             stageText.text = "(ÁÎÑÑ!) ýòàï - " + stage;
             timer -= Time.deltaTime;
@@ -289,10 +332,9 @@ public class GameController : MonoBehaviour
             timerBar.fillAmount = timer / timerCap;
             killsMax = 1;
             bgBoss.gameObject.SetActive(true);
-            boss.gameObject.SetActive(true);
-            enemy.gameObject.SetActive(false);
+            enemyImg.sprite = boss;
         }
-        else
+        else 
         {
             isBoss = 1;
             stageText.text = "ýòàï - " + stage;
@@ -302,16 +344,18 @@ public class GameController : MonoBehaviour
             timer = 30;
             killsMax = 10;
             bgBoss.gameObject.SetActive(false);
-            boss.gameObject.SetActive (false);
-            enemy.gameObject.SetActive(true);
+
         }
     }
+
+
 
     public void Hit()
     {
         health -= dpc;
         Instantiate(effect, enemy.GetComponent<RectTransform>().position.normalized, Quaternion.identity);
         soundPlay.Play();
+        enemyTap.Play("EnemyTap", 0, 0);
         if (health <= 0)
         {
             kill();
@@ -340,7 +384,11 @@ public class GameController : MonoBehaviour
 
         IsBossChecker();
         health = healthCap;
-        if (isBoss > 1) timer = timerCap;
+        if (isBoss > 1)
+        {
+            timer = timerCap;
+            medal += 1;
+        }
         killsMax = 10;
     }
 
@@ -412,6 +460,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("cLevel", cLevel);
         PlayerPrefs.SetInt("pLevel", pLevel);
         PlayerPrefs.SetInt("OfflineProgressCheck", OfflineProgressCheck);
+        PlayerPrefs.SetInt("meadl", medal);
 
         PlayerPrefs.SetString("OfflineTime", DateTime.Now.ToBinary().ToString());
     }
@@ -427,9 +476,10 @@ public class GameController : MonoBehaviour
         killsMax = PlayerPrefs.GetInt("killsMax", 10);
         isBoss = PlayerPrefs.GetInt("isBoss", 1);
         pLevel = PlayerPrefs.GetInt("pLevel", 0);
-        cLevel = PlayerPrefs.GetInt("cLevel", 0);
+        cLevel = PlayerPrefs.GetInt("cLevel", 1000);
         OfflineProgressCheck = PlayerPrefs.GetInt("OfflineProgressCheck", 0);
         acceptY = PlayerPrefs.GetInt("acceptY", 0);
+        medal = PlayerPrefs.GetInt("medal", 0);
         LoadOfflineProduction();
     }
 
@@ -457,7 +507,17 @@ public class GameController : MonoBehaviour
     {
         offlineBox.gameObject.SetActive(false);
     }
-
+    public void NextWinScreen() 
+    {
+        winScreenText1.gameObject.SetActive(false);
+        winScreenText2.gameObject.SetActive(true);
+        nextWinScreen.gameObject.SetActive(false);
+        closeWinScreen.gameObject.SetActive(true);
+    }
+    public void CloseWinScreen() 
+    {
+        winScreen.gameObject.SetActive(false);
+    }
     public void OpenMult()
     {
         multBox.gameObject.SetActive(false);
