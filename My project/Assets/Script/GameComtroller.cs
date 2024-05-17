@@ -6,6 +6,7 @@ using System;
 using TMPro;
 using Unity.Mathematics;
 using System.Security.Cryptography.X509Certificates;
+//using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return (10 * System.Math.Pow(2, stage - 1) * isBoss);
+            return (10 * System.Math.Pow(2, stage - 1 + newGameCount) * isBoss);
         }
     }
 
@@ -106,7 +107,34 @@ public class GameController : MonoBehaviour
     public Sprite enemy2;
     public Sprite enemy3;
     public Sprite enemy4;
-    public Sprite boss;
+    public Sprite enemy5;
+    public Sprite enemy6;
+    public Sprite enemy7;
+    public Sprite enemy8;
+    public Sprite boss2;
+    public Sprite boss1;
+
+    public Image background;
+
+    //background
+    public Sprite bg1;
+    public Sprite bg2;
+    public Sprite bg3;
+    public Sprite bg4;
+    public Sprite bg5;
+    public Sprite bg6;
+    public Sprite bg7;
+    public Sprite bg8;
+    public Sprite bg9;
+    public Sprite bg10;
+    public Sprite bg11;
+    public Sprite bg12;
+    public Sprite bg13;
+    public Sprite bg14;
+    public Sprite bg15;
+    public Sprite bg16;
+    public Sprite bgBoss1;
+    public Sprite bgBoss2;
 
     public GameObject effect;
     public AudioSource soundPlay;
@@ -117,6 +145,8 @@ public class GameController : MonoBehaviour
     public GameObject w1;
     public Text winScreenText1;
     public Text winScreenText2;
+    public Text closeWinScreenText3;
+
 
 
     public double pCost
@@ -141,7 +171,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 1 /*10 * Math.Pow(1.07, cLevel)*/;
+            return 10 * Math.Pow(1.07, cLevel);
         }
     }
     public int cLevel;
@@ -149,16 +179,12 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 100000 * cLevel;
+            return 2 * cLevel;
         }
     }
 
     //Background
-    public Image bgBoss;
     public Image enemy;
-
-  //  public Text newLevelCost;
-   // public Text newLevelPower;
 
     public void Start()
     {
@@ -222,14 +248,12 @@ public class GameController : MonoBehaviour
         dpc = 1;
         dps = 0;
         health = healthCap;
+        medal = 0;
     }
     public void NewGame() 
     {
-       // dpcWin = 1;
         newGameCount++;
         dpc = 1;
-       // dpcWin += newGameCount;
-        dpc += dpcWin;
         money = 0;
         enemyTurn = 0;
         cLevel = 0;
@@ -249,21 +273,41 @@ public class GameController : MonoBehaviour
         else
         { health -= dps * Time.deltaTime; }
         //switch for boss
-        switch (enemyTurn)
+        BgChanger();
+        if (newGameCount == 0)
         {
-            case 0:
-                enemyImg.sprite = enemy1;
-                break;
-            case 1:
-                enemyImg.sprite = enemy2;
-                break;
-            case 2:
-                enemyImg.sprite = enemy3;
-                break;
-            case 3:
-                enemyImg.sprite = enemy4;
-                break;
+            switch (enemyTurn)
+            {
+                case 0:
+                    enemyImg.sprite = enemy1;
+                    break;
+                case 1:
+                    enemyImg.sprite = enemy2;
+                    break;
+                case 2:
+                    enemyImg.sprite = enemy3;
+                    break;
+                case 3:
+                    enemyImg.sprite = enemy4;
+                    break;
+            }
         }
+        else
+            switch (enemyTurn)
+            {
+                case 0:
+                    enemyImg.sprite = enemy5;
+                    break;
+                case 1:
+                    enemyImg.sprite = enemy6;
+                    break;
+                case 2:
+                    enemyImg.sprite = enemy7;
+                    break;
+                case 3:
+                    enemyImg.sprite = enemy8;
+                    break;
+            }
         //mult
         multValueMoney = multValue * moneyPerSec;
         multText.text = "$" + multValueMoney.ToString("F2");
@@ -297,11 +341,98 @@ public class GameController : MonoBehaviour
             saveTime = 0;
             save();
         }
-        if (medal == 4) 
+        if (stageMax == 11 && medal < 1) 
         {
+            medal++;
+            winScreen.SetActive(true);
             w1.gameObject.SetActive(true);
+            winScreenText1.gameObject.SetActive(true);  
+            winScreenText2.gameObject.SetActive(false);
+            nextWinScreen.SetActive(true);
+            closeWinScreen.gameObject.SetActive(false);
         }
     }
+    public void BgChanger()
+    {
+        if (newGameCount == 0)
+        {
+            switch (stage)
+            {
+                case 1:
+                    background.sprite = bg1;
+                    break;
+                case 2:
+                    background.sprite = bg2;
+                    break;
+                case 3:
+                    background.sprite = bg3;
+                    break;
+                case 4:
+                    background.sprite = bg4;
+                    break;
+                case 5:
+                    background.sprite = bgBoss1;
+                    break;
+                case 6:
+                    background.sprite = bg5;
+                    break;
+                case 7:
+                    background.sprite = bg6;
+                    break;
+                case 8:
+                    background.sprite = bg7;
+                    break;
+                case 9:
+                    background.sprite = bg8;
+                    break;
+                case 10:
+                    background.sprite = bgBoss1;
+                    break;
+                default:
+                    background.sprite = bg3;
+                    break;
+            }
+        }
+        else
+            switch (stage)
+            {
+                case 1:
+                    background.sprite = bg9;
+                    break;
+                case 2:
+                    background.sprite = bg10;
+                    break;
+                case 3:
+                    background.sprite = bg11;
+                    break;
+                case 4:
+                    background.sprite = bg12;
+                    break;
+                case 5:
+                    background.sprite = bgBoss2;
+                    break;
+                case 6:
+                    background.sprite = bg13;
+                    break;
+                case 7:
+                    background.sprite = bg14;
+                    break;
+                case 8:
+                    background.sprite = bg15;
+                    break;
+                case 9:
+                    background.sprite = bg16;
+                    break;
+                case 10:
+                    background.sprite = bgBoss2;
+                    break;
+                default:
+                    background.sprite = bg12;
+                    break;
+            }
+            
+    }
+
 
     public void Upgrades()
     {
@@ -313,41 +444,71 @@ public class GameController : MonoBehaviour
         pLevelText.text = "уровень: " + pLevel;
         pPowerText.text = "+ 5 в секунду";
         dps = pPower;
-        dpc = 1 + cPower;
+        if (newGameCount > 0) { dpc = 1 + cPower + (newGameCount*2); }
+        else dpc = 1 + cPower;
     }
 
     public void IsBossChecker()
     {
-        if (stage % 5 == 0 && stageMax < 11)
+        if (newGameCount > 0)
         {
+            if (stage % 5 == 0 && stageMax < 11)
+            {
 
-            isBoss = 10;
-            stageText.text = "(БОСС!) этап - " + stage;
-            timer -= Time.deltaTime;
-            if (timer <= 0) Back();
+                isBoss = 10;
+                stageText.text = "(БОСС!) этап - " + stage;
+                timer -= Time.deltaTime;
+                if (timer <= 0) Back();
+                
+                timerText.text = timer + "/" + timerCap;
+                timerBar.gameObject.SetActive(true);
+                timerBG.gameObject.SetActive(true);
+                timerBar.fillAmount = timer / timerCap;
+                killsMax = 1;
+                enemyImg.sprite = boss1;
+            }
+            else
+            {
+                isBoss = 1;
+                stageText.text = "этап - " + stage;
+                timerText.text = "";
+                timerBar.gameObject.SetActive(false);
+                timerBG.gameObject.SetActive(false);
+                timer = 30;
+                killsMax = 10;
 
-            timerText.text = timer + "/" + timerCap;
-            timerBar.gameObject.SetActive(true);
-            timerBG.gameObject.SetActive(true);
-            timerBar.fillAmount = timer / timerCap;
-            killsMax = 1;
-            bgBoss.gameObject.SetActive(true);
-            enemyImg.sprite = boss;
+            }
         }
-        else 
+        else
         {
-            isBoss = 1;
-            stageText.text = "этап - " + stage;
-            timerText.text = "";
-            timerBar.gameObject.SetActive(false);
-            timerBG.gameObject.SetActive(false);
-            timer = 30;
-            killsMax = 10;
-            bgBoss.gameObject.SetActive(false);
+            if (stage % 5 == 0 && stageMax < 11)
+            {
 
+                isBoss = 10;
+                stageText.text = "(БОСС!) этап - " + stage;
+                timer -= Time.deltaTime;
+                if (timer <= 0) Back();
+
+                timerText.text = timer + "/" + timerCap;
+                timerBar.gameObject.SetActive(true);
+                timerBG.gameObject.SetActive(true);
+                timerBar.fillAmount = timer / timerCap;
+                killsMax = 1;
+                enemyImg.sprite = boss2;
+            }
+            else
+            {
+                isBoss = 1;
+                stageText.text = "этап - " + stage;
+                timerText.text = "";
+                timerBar.gameObject.SetActive(false);
+                timerBG.gameObject.SetActive(false);
+                timer = 30;
+                killsMax = 10;
+
+            }
         }
     }
-
 
 
     public void Hit()
@@ -387,7 +548,6 @@ public class GameController : MonoBehaviour
         if (isBoss > 1)
         {
             timer = timerCap;
-            medal += 1;
         }
         killsMax = 10;
     }
@@ -513,6 +673,7 @@ public class GameController : MonoBehaviour
         winScreenText2.gameObject.SetActive(true);
         nextWinScreen.gameObject.SetActive(false);
         closeWinScreen.gameObject.SetActive(true);
+        closeWinScreenText3.gameObject.SetActive(true);
     }
     public void CloseWinScreen() 
     {
