@@ -6,7 +6,8 @@ using System;
 using TMPro;
 using Unity.Mathematics;
 using System.Security.Cryptography.X509Certificates;
-//using UnityEngine.UIElements;
+using UnityEditor;
+using Unity.VisualScripting;
 
 public class GameController : MonoBehaviour
 {
@@ -142,10 +143,13 @@ public class GameController : MonoBehaviour
     public GameObject winScreen;
     public GameObject closeWinScreen;
     public GameObject nextWinScreen;
-    public GameObject w1;
+    public GameObject attentionScreen;
+    public GameObject closeAttentionScreen;
+    public GameObject districtNew;
     public Text winScreenText1;
     public Text winScreenText2;
     public Text closeWinScreenText3;
+    public Text attentionScreenText;
 
 
 
@@ -171,7 +175,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 10 * Math.Pow(1.07, cLevel);
+            return 1/*10 * Math.Pow(1.07, cLevel)*/;
         }
     }
     public int cLevel;
@@ -179,7 +183,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 2 * cLevel;
+            return 2000000 * cLevel;
         }
     }
 
@@ -204,7 +208,6 @@ public class GameController : MonoBehaviour
         else
             welcomeBox.gameObject.SetActive(false);
 
-        w1.SetActive(false);
         IsBossChecker();
         health = healthCap;
         timerCap = 30;
@@ -264,7 +267,8 @@ public class GameController : MonoBehaviour
         dps = 0;
         medal = 0;
         health = healthCap;
-        w1.gameObject.SetActive(false);
+        attentionScreen.gameObject.SetActive(false);
+        districtNew.gameObject.SetActive(false);
     }
 
     public void Update()
@@ -341,16 +345,20 @@ public class GameController : MonoBehaviour
             saveTime = 0;
             save();
         }
-        if (stageMax == 11 && medal < 1) 
+        if (stageMax == 11 && medal < 1)
         {
             medal++;
             winScreen.SetActive(true);
-            w1.gameObject.SetActive(true);
-            winScreenText1.gameObject.SetActive(true);  
+            districtNew.gameObject.SetActive(true);
+            winScreenText1.gameObject.SetActive(true);
             winScreenText2.gameObject.SetActive(false);
             nextWinScreen.SetActive(true);
             closeWinScreen.gameObject.SetActive(false);
         }
+        //else 
+        //{
+        //    districtNew.gameObject.SetActive(false);
+        //}
     }
     public void BgChanger()
     {
@@ -678,6 +686,14 @@ public class GameController : MonoBehaviour
     public void CloseWinScreen() 
     {
         winScreen.gameObject.SetActive(false);
+    }
+    public void ShowAttention() 
+    {
+        attentionScreen.gameObject.SetActive(true);
+    }
+    public void CloseAttentionScreen() 
+    {
+        attentionScreen.gameObject.SetActive(false);
     }
     public void OpenMult()
     {
