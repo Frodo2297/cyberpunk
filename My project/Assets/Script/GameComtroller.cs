@@ -445,11 +445,11 @@ public class GameController : MonoBehaviour
     public void Upgrades()
     {
         cCostText.text = "цена: $" + WordNotation(cCost, "F2");
-        cLevelText.text = "уровень: " + cLevel;
+        cLevelText.text = cLevel.ToString();
         cPowerText.text = "+ 2 за клик";
 
         pCostText.text = "цена: $" + WordNotation(pCost, "F2");
-        pLevelText.text = "уровень: " + pLevel;
+        pLevelText.text = pLevel.ToString();
         pPowerText.text = "+ 5 в секунду";
         dps = pPower;
         if (newGameCount > 0) { dpc = 1 + cPower + (newGameCount*2); }
@@ -628,7 +628,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("cLevel", cLevel);
         PlayerPrefs.SetInt("pLevel", pLevel);
         PlayerPrefs.SetInt("OfflineProgressCheck", OfflineProgressCheck);
-        PlayerPrefs.SetInt("meadl", medal);
+        PlayerPrefs.SetInt("medal", medal);
+        PlayerPrefs.SetInt("newGameCount", newGameCount);
 
         PlayerPrefs.SetString("OfflineTime", DateTime.Now.ToBinary().ToString());
     }
@@ -648,6 +649,7 @@ public class GameController : MonoBehaviour
         OfflineProgressCheck = PlayerPrefs.GetInt("OfflineProgressCheck", 0);
         acceptY = PlayerPrefs.GetInt("acceptY", 0);
         medal = PlayerPrefs.GetInt("medal", 0);
+        newGameCount = PlayerPrefs.GetInt("newGameCount", 0);
         LoadOfflineProduction();
     }
 
