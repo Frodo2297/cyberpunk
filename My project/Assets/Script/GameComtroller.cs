@@ -57,6 +57,8 @@ public class GameController : MonoBehaviour
 
     public GameObject back;
     public GameObject forward;
+    public GameObject forwardBlank;
+    public GameObject backBlank;
 
     public Image healthBar;
     public Image timerBar;
@@ -152,8 +154,8 @@ public class GameController : MonoBehaviour
     public Text attentionScreenText;
 
     public GameObject bgOff;
-    //public GameObject cbuyOff;
-    //public GameObject pbuyOff;
+    public GameObject cbuyOff;
+    public GameObject pbuyOff;
 
 
 
@@ -278,6 +280,7 @@ public class GameController : MonoBehaviour
         health = healthCap;
         attentionScreen.gameObject.SetActive(false);
         districtNew.gameObject.SetActive(false);
+        bgOff.SetActive(false);
     }
 
     public void Update()
@@ -357,28 +360,34 @@ public class GameController : MonoBehaviour
             saveTime = 0;
             save();
         }
-        if (stageMax == 10 && medal < 1)
+        if (stageMax == 11 && medal < 1)
         {
             medal++;
             winScreen.SetActive(true);
-            districtNew.gameObject.SetActive(true);
             winScreenText1.gameObject.SetActive(true);
             winScreenText2.gameObject.SetActive(false);
             nextWinScreen.SetActive(true);
             closeWinScreen.gameObject.SetActive(false);
             bgOff.gameObject.SetActive(true);
         }
-        if (bgOff.activeSelf) { 
-        enemy.gameObject.SetActive(false);
-        //cbuyOff.gameObject.SetActive(false);
-        //pbuyOff.gameObject.SetActive(false);
-        back.gameObject.SetActive(false);
-        forward.gameObject.SetActive(false);
-    } 
+        if (bgOff.activeSelf) {
+            enemy.gameObject.SetActive(false);
+            cbuyOff.gameObject.SetActive(false);
+            pbuyOff.gameObject.SetActive(false);
+            back.gameObject.SetActive(false);
+            forward.gameObject.SetActive(false);   
+            districtNew.gameObject.SetActive(false);
+            if (stage != stageMax) forwardBlank.gameObject.SetActive(true);
+            else forwardBlank.gameObject.SetActive(false);
+            if (stage != stageMax) backBlank.gameObject.SetActive(true);
+            else backBlank.gameObject.SetActive(false);
+        } 
         else {
             enemy.gameObject.SetActive(true);
-            //cbuyOff.gameObject.SetActive(true);
-            //pbuyOff.gameObject.SetActive(true);
+            cbuyOff.gameObject.SetActive(true);
+            pbuyOff.gameObject.SetActive(true);
+            if( medal > 0)districtNew.gameObject.SetActive(true);
+
         }
         //else 
         //{
