@@ -252,6 +252,7 @@ public class GameController : MonoBehaviour
         dps = 0;
         health = healthCap;
         medal = 0;
+        newGameCount = 0;
     }
     public void NewGame() 
     {
