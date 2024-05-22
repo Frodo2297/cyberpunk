@@ -151,6 +151,10 @@ public class GameController : MonoBehaviour
     public Text closeWinScreenText3;
     public Text attentionScreenText;
 
+    public GameObject bgOff;
+    //public GameObject cbuyOff;
+    //public GameObject pbuyOff;
+
 
 
     public double pCost
@@ -204,6 +208,7 @@ public class GameController : MonoBehaviour
             accept1.gameObject.SetActive(false);
             accept2.gameObject.SetActive(false);
             welcomeBox.gameObject.SetActive(true);
+            bgOff.gameObject.SetActive(true);
         }
         else
             welcomeBox.gameObject.SetActive(false);
@@ -223,6 +228,7 @@ public class GameController : MonoBehaviour
         welcomeText.gameObject.SetActive(false);
         welcomeText1.gameObject.SetActive(true);
         welcomeText2.gameObject.SetActive(false);
+        bgOff.gameObject.SetActive(true);
     }
     public void NextPage1()
     {
@@ -232,11 +238,13 @@ public class GameController : MonoBehaviour
         welcomeText.gameObject.SetActive(false);
         welcomeText1.gameObject.SetActive(false);
         welcomeText2.gameObject.SetActive(true);
+        bgOff.gameObject.SetActive(true);
     }
     public void Exit()
     {
         welcomeBox.gameObject.SetActive(false);
         acceptY += 1;
+        bgOff.gameObject.SetActive(false);
     }
     public void Reset()
     {
@@ -329,7 +337,10 @@ public class GameController : MonoBehaviour
 
         healthBar.fillAmount = (float)(health / healthCap);
 
-        if (stage > 1) back.gameObject.SetActive(true);
+        if (stage > 1)
+        {
+            back.gameObject.SetActive(true);
+        }
         else
             back.gameObject.SetActive(false);
 
@@ -346,7 +357,7 @@ public class GameController : MonoBehaviour
             saveTime = 0;
             save();
         }
-        if (stageMax == 11 && medal < 1)
+        if (stageMax == 10 && medal < 1)
         {
             medal++;
             winScreen.SetActive(true);
@@ -355,6 +366,19 @@ public class GameController : MonoBehaviour
             winScreenText2.gameObject.SetActive(false);
             nextWinScreen.SetActive(true);
             closeWinScreen.gameObject.SetActive(false);
+            bgOff.gameObject.SetActive(true);
+        }
+        if (bgOff.activeSelf) { 
+        enemy.gameObject.SetActive(false);
+        //cbuyOff.gameObject.SetActive(false);
+        //pbuyOff.gameObject.SetActive(false);
+        back.gameObject.SetActive(false);
+        forward.gameObject.SetActive(false);
+    } 
+        else {
+            enemy.gameObject.SetActive(true);
+            //cbuyOff.gameObject.SetActive(true);
+            //pbuyOff.gameObject.SetActive(true);
         }
         //else 
         //{
@@ -659,6 +683,7 @@ public class GameController : MonoBehaviour
         if (acceptY > 0)
         {
             offlineBox.gameObject.SetActive(true);
+            bgOff.gameObject.SetActive(true);
             long previousTime = Convert.ToInt64(PlayerPrefs.GetString("OfflineTime"));
             oldTime = DateTime.FromBinary(previousTime);
             currentDate = DateTime.Now;
@@ -677,6 +702,7 @@ public class GameController : MonoBehaviour
     public void CloseOfflineBox()
     {
         offlineBox.gameObject.SetActive(false);
+        bgOff.gameObject.SetActive(false);
     }
     public void NextWinScreen() 
     {
@@ -685,18 +711,22 @@ public class GameController : MonoBehaviour
         nextWinScreen.gameObject.SetActive(false);
         closeWinScreen.gameObject.SetActive(true);
         closeWinScreenText3.gameObject.SetActive(true);
+        bgOff.gameObject.SetActive(true);
     }
     public void CloseWinScreen() 
     {
         winScreen.gameObject.SetActive(false);
+        bgOff.gameObject.SetActive(false);
     }
     public void ShowAttention() 
     {
         attentionScreen.gameObject.SetActive(true);
+        bgOff.gameObject.SetActive(true);
     }
     public void CloseAttentionScreen() 
     {
-        attentionScreen.gameObject.SetActive(false);
+        attentionScreen.gameObject.SetActive(false); 
+        bgOff.gameObject.SetActive(false);
     }
     public void OpenMult()
     {
