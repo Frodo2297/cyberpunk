@@ -494,10 +494,10 @@ public class GameController : MonoBehaviour
     {
         if (newGameCount > 0)
         {
-            if (stage % 5 == 0 && stageMax == 4)
+            if (stage % 5 == 0 && stageMax == 10)
                 {
 
-                isBoss = 10;
+                isBoss = 5;
                 stageText.text = "(ÁÎÑÑ!) ıòàï - " + stage;
                 timer -= Time.deltaTime;
                 if (timer <= 0) Back();
@@ -523,10 +523,10 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if (stage % 5 == 0 && stageMax == 4)
+            if (stage % 5 == 0 && stageMax == 10)
             {
 
-                isBoss = 10;
+                isBoss = 5;
                 stageText.text = "(ÁÎÑÑ!) ıòàï - " + stage;
                 timer -= Time.deltaTime;
                 if (timer <= 0) Back();
@@ -679,7 +679,7 @@ public class GameController : MonoBehaviour
         killsMax = PlayerPrefs.GetInt("killsMax", 10);
         isBoss = PlayerPrefs.GetInt("isBoss", 1);
         pLevel = PlayerPrefs.GetInt("pLevel", 0);
-        cLevel = PlayerPrefs.GetInt("cLevel", 1000);
+        cLevel = PlayerPrefs.GetInt("cLevel", 1);
         OfflineProgressCheck = PlayerPrefs.GetInt("OfflineProgressCheck", 0);
         acceptY = PlayerPrefs.GetInt("acceptY", 0);
         medal = PlayerPrefs.GetInt("medal", 0);
