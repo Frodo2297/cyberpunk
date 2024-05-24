@@ -4997,16 +4997,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221240043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.01514086, y: 0.01514086, z: 0.01514086}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078304093}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -143.56, y: -132.01}
+  m_AnchoredPosition: {x: 9339.811, y: 8976.539}
   m_SizeDelta: {x: 65.6, y: 58.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221240045
@@ -9273,8 +9273,8 @@ MonoBehaviour:
   enemy5: {fileID: 21300000, guid: 40027e845e2f3804fa0b1d16e35fd605, type: 3}
   enemy6: {fileID: 21300000, guid: dd7094a998d29d04e99acbaa9ecd9f42, type: 3}
   enemy7: {fileID: 21300000, guid: 4feffe7058ba2bb40b386563e40d4c1f, type: 3}
-  enemy8: {fileID: 21300000, guid: 307966f709a73ba428689eaa5efbadba, type: 3}
-  boss2: {fileID: 21300000, guid: 76a4fdbca1515d24e9c14b9846980c20, type: 3}
+  enemy8: {fileID: 21300000, guid: dd09494ab2f2bc64f80d729a6b81eb3f, type: 3}
+  boss2: {fileID: 21300000, guid: b0fd74fd51fbd984ab008c44c65e08dd, type: 3}
   boss1: {fileID: 21300000, guid: 698da3fe5f73e7d41a39a912e6e09c36, type: 3}
   background: {fileID: 415212570}
   bg1: {fileID: 21300000, guid: d3d1f66b975eeec44b8bcdc8bdab1d3c, type: 3}
@@ -9596,7 +9596,6 @@ RectTransform:
   - {fileID: 1090960693}
   - {fileID: 756805857}
   - {fileID: 1650338665}
-  - {fileID: 1221240044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9764,5 +9763,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1221240044}
   - {fileID: 2078304093}
   - {fileID: 1210358107}

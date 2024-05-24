@@ -181,7 +181,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 1/*10 * Math.Pow(1.07, cLevel)*/;
+            return 10 * Math.Pow(1.07, cLevel);
         }
     }
     public int cLevel;
@@ -189,7 +189,7 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return 2000000 * cLevel;
+            return 2 * cLevel;
         }
     }
 
@@ -494,8 +494,8 @@ public class GameController : MonoBehaviour
     {
         if (newGameCount > 0)
         {
-            if (stage % 5 == 0 && stageMax < 11)
-            {
+            if (stage % 5 == 0 && stageMax == 4)
+                {
 
                 isBoss = 10;
                 stageText.text = "(ÁÎÑÑ!) ıòàï - " + stage;
@@ -523,7 +523,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if (stage % 5 == 0 && stageMax < 11)
+            if (stage % 5 == 0 && stageMax == 4)
             {
 
                 isBoss = 10;
